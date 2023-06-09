@@ -10,12 +10,8 @@ export default function TableMain({ pageId }: { pageId: number }) {
 
     const [page, setPage] = React.useState<number>(pageId);
 
-    console.log('pageId', pageId)
-
-
     React.useEffect(() => {
         if (pageId != -1) {
-            console.log("currentPage", pageId)
             setPage(pageId)
         }
     }, [pageId])
@@ -109,6 +105,6 @@ export default function TableMain({ pageId }: { pageId: number }) {
 
 
 
-        <Table dataSource={data} columns={_columns} />
+        <Table dataSource={data} columns={_columns} rowKey="id" />
     </React.Fragment>
 }

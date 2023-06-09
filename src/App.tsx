@@ -11,6 +11,7 @@ function App() {
 
   const { data: pages, isLoading: pagesIsLoading, error: pagesError, } = useGetPages();
   const [currentPage, setCurrentPage] = React.useState<number>();
+  const [pageIndex, setPageIndex] = React.useState<number>(1);
 
   const queryClient = useQueryClient()
 
@@ -22,9 +23,13 @@ function App() {
   }, [pages])
 
   const handlePageChange = (index: number) => {
+    setPageIndex(index)
     setCurrentPage(pages[index - 1].id)
   }
 
+  // console.log('pages', pages)
+  // console.log('currentPage', currentPage)
+  // console.log('pages.length', pages?.length)
 
 
   if (pagesIsLoading) return <div>loading...</div>
@@ -38,7 +43,7 @@ function App() {
             <Button onClick={async () => await queryClient.invalidateQueries()}>Refresh</Button>
             <TableMain pageId={currentPage} />
             <Pagination
-              current={currentPage % pages.length}
+              current={pageIndex}
               pageSize={1}
               total={pages.length}
               onChange={handlePageChange}
