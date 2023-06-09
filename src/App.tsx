@@ -1,8 +1,9 @@
 import React from 'react';
 import { useGetPages } from './Query'
-import { Pagination } from 'antd';
+import { Button, Pagination } from 'antd';
 import TableMain from './Components/table';
 import Nav from './Components/Nav';
+import { useQueryClient } from '@tanstack/react-query';
 
 
 function App() {
@@ -10,6 +11,9 @@ function App() {
 
   const { data: pages, isLoading: pagesIsLoading, error: pagesError, } = useGetPages();
   const [currentPage, setCurrentPage] = React.useState<number>();
+
+  const queryClient = useQueryClient()
+
 
   React.useEffect(() => {
     if (pages != undefined) {
@@ -31,6 +35,7 @@ function App() {
         <Nav />
         {currentPage ?
           <React.Fragment>
+            <Button onClick={async () => await queryClient.invalidateQueries()}>Refresh</Button>
             <TableMain pageId={currentPage} />
             <Pagination
               current={currentPage % pages.length}

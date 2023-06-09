@@ -2,18 +2,26 @@ import { Upload, Button, message, Modal } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import React from 'react';
 import axios from 'axios';
+import { useQueryClient } from '@tanstack/react-query';
 
 export default function FileUploadForm() {
     const [showModal, setshowModal] = React.useState(false)
 
+    const queryClient = useQueryClient()
 
-    const handleFileUpload = (info: any) => {
 
 
-        if (info.status === 'done') {
-            message.success(`${info.name} file uploaded successfully.`);
-            // Process the uploaded file here
-        } else if (info.status === 'error') {
+    const handleFileUpload = async (info: any) => {
+
+        if (info.file.status === 'done') {
+            message.success(`${info.file.name} file uploaded successfully.`);
+
+            // await queryClient.invalidateQueries()
+
+            setshowModal(false)
+        } else if (info.file.status === 'uploading') {
+            message.loading({ content: 'Uploading...', key: 'updatable' });
+        } else if (info.file.status === 'error') {
             message.error(`${info.name} file upload failed.`);
         }
     };
@@ -28,8 +36,8 @@ export default function FileUploadForm() {
 
     const uploadProps = {
         name: 'file',
-        action: 'http://localhost:5000/xlsx/upload', // Replace with your actual upload URL
-        accept: '.*', // Specify the allowed file types
+        action: 'http://localhost:5000/xlsx/file/upload',
+        accept: '.*',
         onChange: handleFileUpload,
     };
 
