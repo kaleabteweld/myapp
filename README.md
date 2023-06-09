@@ -46,7 +46,7 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 To learn React, check out the [React documentation](https://reactjs.org/).
 
 
-![alt text](https://github.com/kaleabteweld3/myapp/blob/master/doc/img/Screenshot 2023-06-09 231729.png?raw=true)
-![alt text](https://github.com/kaleabteweld3/myapp/blob/master/doc/img/Screenshot 2023-06-09 231805.png?raw=true)
-![alt text](https://github.com/kaleabteweld3/myapp/blob/master/doc/img/Screenshot 2023-06-09 231836.png?raw=true)
-![alt text](https://github.com/kaleabteweld3/myapp/blob/master/doc/img//Screenshot 2023-06-09 231858.png?raw=true)
+![alt text](https://github.com/kaleabteweld3/myapp/blob/master/doc/img/Screenshot%202023-06-09%20231729.png?raw=true)
+![alt text](https://github.com/kaleabteweld3/myapp/blob/master/doc/img/Screenshot%202023-06-09%20231805.png?raw=true)
+![alt text](https://github.com/kaleabteweld3/myapp/blob/master/doc/img/Screenshot%202023-06-09%20231836.png?raw=true)
+![alt text](https://github.com/kaleabteweld3/myapp/blob/master/doc/img/Screenshot%202023-06-09%20231858.png?raw=true)
