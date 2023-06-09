@@ -4,7 +4,7 @@ import EditSectionModal from './edit';
 import CreateSectionModal from './create';
 
 import { useGetConstructionItems, useDeleteConstructionItem, useUpdateConstructionItem, useAddConstructionItem, columns } from '../Query'
-import { IEditSectionProps, ISection } from '../Types';
+import { ISection } from '../Types';
 
 export default function TableMain({ pageId }: { pageId: number }) {
 
@@ -37,6 +37,7 @@ export default function TableMain({ pageId }: { pageId: number }) {
             title: 'Edit',
             dataIndex: 'edit',
             render: (_: any, record: any) => (
+
                 <button onClick={() => handleEdit(record)}>
                     Edit
                 </button>

@@ -23,3 +23,8 @@ export interface IEditSectionProps {
     onCancel: () => void,
     onSave: (section: IInputSection) => void
 }
+
+export interface ITitle {
+    itemNo?: number;
+    description?: string,
+}

@@ -1,6 +1,7 @@
 import React, { JSX } from 'react';
 import { Form, Input, InputNumber, Modal } from 'antd';
 import { IEditSectionProps } from '../Types';
+import { isItem } from '../Types/functions';
 
 export default function EditSectionModal({ section, visible, onCancel, onSave }: {
     section?: IEditSectionProps,
@@ -37,23 +38,29 @@ export default function EditSectionModal({ section, visible, onCancel, onSave }:
                     <Input />
                 </Form.Item>
 
-                <Form.Item name="unit" label="Unit" >
-                    <Input />
-                </Form.Item>
+                {
+                    isItem(section as any) ?
+                        <React.Fragment>
+                            <Form.Item name="unit" label="Unit" >
+                                <Input />
+                            </Form.Item>
 
 
-                <Form.Item name="qty" label="Qty" >
-                    <InputNumber />
-                </Form.Item>
+                            <Form.Item name="qty" label="Qty" >
+                                <InputNumber />
+                            </Form.Item>
 
 
-                <Form.Item name="rate" label="Rate" >
-                    <InputNumber />
-                </Form.Item>
+                            <Form.Item name="rate" label="Rate" >
+                                <InputNumber />
+                            </Form.Item>
 
-                <Form.Item name="amount" label="Amount" >
-                    <InputNumber />
-                </Form.Item>
+                            <Form.Item name="amount" label="Amount" >
+                                <InputNumber />
+                            </Form.Item>
+                        </React.Fragment>
+                        : null
+                }
             </Form>
         </Modal>
 
